@@ -1,0 +1,266 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>チャットボットハンズオン</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="https://"
+                  title="チャットボットハンズオン"
+                  environment="web"
+                  feedback-link="https://">
+    
+      <google-codelab-step label="概要" duration="1">
+        <p><strong>お寿司の注文を対応するチャットボット</strong></p>
+<p><strong>メニューとか、会話フロー書いておく</strong></p>
+<h2 is-upgraded>Watson Assistantのインスタンスを起動する</h2>
+<ul>
+<li>IBM Cloud ライトアカウントで [ ダッシュボード ] 画面を開きます。</li>
+</ul>
+<p><strong>ダッシュボード 画面</strong></p>
+<ul>
+<li>画面右上の「カタログ」リンクを押下します。</li>
+</ul>
+<p><strong>IBM Cloud 製品 画面</strong></p>
+<ul>
+<li>検索窓に「assistant」と記入します。</li>
+<li>サジェストで表示された「Watson Assistant」を押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/495bf9640b14a334.png"></p>
+<p><strong>Watson Assistant 画面</strong></p>
+<ul>
+<li>作成するインスタンス情報を設定します。</li>
+<li>画面を「リソースの構成」部分までスクロールします。</li>
+<li>サービス名を任意の名前に変更します。</li>
+</ul>
+<p>例）handson-20201026</p>
+<ul>
+<li>画面右側の「サマリー」から [作成] ボタンを押下します。</li>
+<li>[作成] ボタン押下から数秒後に、サービス名が表示されている画面へ遷移します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/5920e3a5ba9aee10.png"></p>
+<p><strong> リソース 画面</strong></p>
+<ul>
+<li>[Watson Assistant の起動] を押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/e10f67d542a1ff2d.png"></p>
+<ul>
+<li>Watson Assistantが起動します。</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Skillを作成する" duration="0">
+        <p><strong>Assistants 画面</strong></p>
+<ul>
+<li>画面左側にある二つ目のアイコンを押下します。</li>
+<li>Skills画面に遷移します。</li>
+<li>[Create assistant] ボタンを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/7831cec2574bf616.png"></p>
+<p><strong>Create a skill画面</strong></p>
+<ul>
+<li>Select skill typeにて「Dialog skill」を選択し、 [Next] ボタンを押下します。</li>
+</ul>
+<p><strong>Create dialog skill画面</strong></p>
+<ul>
+<li>以下の項目を記入します。</li>
+<li>Name：寿司Bot</li>
+<li>Language：Japanese</li>
+</ul>
+<p>                ※Descriptionは書かなくても問題ないです。</p>
+<ul>
+<li>[Create dialog skill] ボタンを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/d8739c110c1eeb8d.png"></p>
+<ul>
+<li>以下のような画面に遷移したら、準備完了です。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/fbfae2946a05f0fb.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="★今回作る会話" duration="0">
+        <p class="image-container"><img style="width: 601.70px" src="img/8e6e099034e29377.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/c9689b42a08800ef.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="★お寿司のメニュー" duration="0">
+        <p>今回、出前で注文を承るお寿司のメニューは以下の３つです。</p>
+<p><img style="width: 134.13px" src="img/1cb8ac38ea566af0.png">松</p>
+<p>サーモン、イカ、マグロの赤身、中トロ、いくら、玉子、イワシ、海老、アナゴ、鉄火巻きのお寿司が入った、握り寿司一人前</p>
+<p class="image-container"><img style="width: 222.50px" src="img/99aff87b4441a72c.png"></p>
+<p><img style="width: 148.53px" src="img/1cb8ac38ea566af0.png">竹</p>
+<p>まぐろづくしの一人前</p>
+<p class="image-container"><img style="width: 207.50px" src="img/bd20e83e39c5556.png"></p>
+<p><img style="width: 137.14px" src="img/1cb8ac38ea566af0.png">梅</p>
+<p>スーパーにも売っているかっぱ巻き一人前</p>
+<p class="image-container"><img style="width: 154.50px" src="img/9413d91ae3174162.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Intentsの登録" duration="0">
+        <p>この章では、Watsonに意図を学習させていきます。</p>
+<p>今回は「出前を依頼する」意図を学習させます。</p>
+<p><strong>Intents画面</strong></p>
+<ul>
+<li>[Create Intent] ボタンを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/dc2620747e005431.png"></p>
+<ul>
+<li>「Intent name」に「出前依頼」と入力し、[Create Intent] を押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/73aa0897d766381a.png"></p>
+<ul>
+<li>「User example」に出前を依頼するときの<strong>例文を</strong>、<strong>出来るだけ多く登録していきます。</strong></li>
+</ul>
+<p>この作業が賢いチャットボットを作る際のポイントとなる作業です。</p>
+<p>※ [add example]  ボタンを押下すると、例文が登録できます。</p>
+<p class="image-container"><img style="width: 601.70px" src="img/7b63995644509631.png"></p>
+<ul>
+<li>ある程度例文を登録できたら、画面左上の [←] を押下して前の画面に戻ります。</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Entitiesの登録" duration="0">
+        <p>この章では、Watsonにキーワードを学習させていきます。</p>
+<p>今回設定するEntitiesは以下の二つです。</p>
+<ul>
+<li>お寿司のメニュー</li>
+<li>時間（予約時間を認識させるために使います）</li>
+</ul>
+<h3 is-upgraded>お寿司のメニューを登録</h3>
+<p><strong>Intents画面</strong></p>
+<ul>
+<li>画面左側の [Entities] リンクを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/636a6677774e5fa9.png"></p>
+<p><strong>My entities画面</strong></p>
+<ul>
+<li>[Create entity] ボタンを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/de984655a63c6564.png"></p>
+<ul>
+<li>「Entity name」に「お寿司のメニュー」と記入し、 [Create entity] を押下します。</li>
+<li>「Value」に「松」、「Synonym」に「松のセット」「豪華なやつ」など、一番豪華なメニューを表すキーワードを入力していきます。</li>
+<li>[ Add value] を押下し、入力した内容を登録します。</li>
+<li>その他のメニューの「竹」「梅」についても、以下の図を参考に同じように登録していきます。</li>
+</ul>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Value</p>
+</td><td colspan="1" rowspan="1"><p>Synonym1</p>
+</td><td colspan="1" rowspan="1"><p>Synonym2</p>
+</td><td colspan="1" rowspan="1"><p>Synonym3</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>松</p>
+</td><td colspan="1" rowspan="1"><p>松</p>
+</td><td colspan="1" rowspan="1"><p>松のセット</p>
+</td><td colspan="1" rowspan="1"><p>豪華なやつ</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>竹</p>
+</td><td colspan="1" rowspan="1"><p>竹</p>
+</td><td colspan="1" rowspan="1"><p>竹のセット</p>
+</td><td colspan="1" rowspan="1"><p>マグロセット</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>梅</p>
+</td><td colspan="1" rowspan="1"><p>梅</p>
+</td><td colspan="1" rowspan="1"><p>梅のセット</p>
+</td><td colspan="1" rowspan="1"><p>かっぱ巻きだけのやつ</p>
+</td></tr>
+</table>
+<p class="image-container"><img style="width: 601.70px" src="img/4da7db7bead728b0.png"></p>
+<h3 is-upgraded>sys-timeを使って時間を認識させる</h3>
+<p>Watsonに予約時間を認識させるために、デフォルトで用意されているSystem entitiesの中から「sys-time」entityの設定を「on」にします。</p>
+<p><strong>My entities画面</strong></p>
+<ul>
+<li>画面左上の「←」を押下し、前の画面に戻ります。</li>
+<li>画面左側の「System entities」リンクを押下します。</li>
+</ul>
+<p><strong>System entities画面</strong></p>
+<ul>
+<li>「＠sys-time」のStatusを押下し「On」にします。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/4a0cbec0799d9454.png"></p>
+<p>これで会話フローを作る材料が揃いました。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Dialogの構築" duration="0">
+        <p>まずは、「宅配依頼」に応答できるようにDialogを組んでいきます。</p>
+<p><strong>System entities画面</strong></p>
+<ul>
+<li>画面左側の [Dialog] リンクを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/9625d9d38a8c696c.png"></p>
+<ul>
+<li>welcomeノードの「:」を押下し、 [Add node below] を選択します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/ac53f5650590b0a1.png"></p>
+<ul>
+<li>「If assistant recognizes」から [# intents] &gt; [#出前依頼] を選択します。</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/5e36423a8e0c6f9f.png"></p>
+<ul>
+<li>「Assistant responds」の text に以下のように記入し、Enterを押下します。</li>
+</ul>
+<p>「ご利用ありがとうございます。お好みのメニューお申し付けください。」</p>
+<p class="image-container"><img style="width: 601.70px" src="img/50263fd88a34c778.png"></p>
+<p>ここまでで第一階層の実装が完了しました。</p>
+<p>「Try it」機能を使って会話フローを確認してみましょう。</p>
+<ul>
+<li>画面右上の [Try it] を押下します。</li>
+<li>入力フォームに「出前お願いしたいんだけど」と入力をしてみましょう。</li>
+<li>先ほど、「Assistant responds」のTextに登録した文章が返ってくれば成功です！</li>
+</ul>
+<p class="image-container"><img style="width: 601.70px" src="img/bf1775195a2fb178.png"></p>
+<p>２階層目</p>
+<p class="image-container"><img style="width: 601.70px" src="img/e8a50496132db8f3.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/fb6937e2db2a1f23.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/6fa4bd2fd26adce9.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/bd44a917a489bf96.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/5616ba4f9e3382c4.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/730543b9205ccd20.png"></p>
+<p>３階層目</p>
+<p class="image-container"><img style="width: 601.70px" src="img/d8fbf38698991dd4.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/3915024951c3a772.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/c44a328f7135574c.png"></p>
+<p class="image-container"><img style="width: 601.70px" src="img/94e316aa7177b6c6.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
