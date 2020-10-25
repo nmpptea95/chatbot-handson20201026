@@ -68,7 +68,7 @@
 <p>※このskillには一意のIDが割り当てられ、アプリからこのAPIを呼び出す際に利用されます。</p>
 <p><strong>Assistants 画面</strong></p>
 <ul>
-<li>画面左側にある二つ目のアイコンを押下します。</li>
+<li>画面左側にある<strong>二つ目のアイコン</strong>を押下します。</li>
 <li>Skills画面に遷移します。</li>
 <li>[Create skill] ボタンを押下します。</li>
 </ul>
@@ -125,7 +125,7 @@
 <ul>
 <li>「User example」に出前を依頼するときの<strong>例文を</strong>、<strong>出来るだけ多く登録していきます。</strong></li>
 </ul>
-<p>この作業が賢いチャットボットを作る際のポイントとなる作業です。</p>
+<p>※ここが賢いチャットボットを作る際のポイントとなる作業です。</p>
 <p>※ [add example]  ボタンを押下すると、例文が登録できます。</p>
 <p class="image-container"><img style="width: 542.50px" src="img/4d05f97ae7b0f854.png"></p>
 <ul>
@@ -213,7 +213,7 @@
 </ul>
 <p class="image-container"><img style="width: 548.50px" src="img/ad44f330c39dd9c6.png"></p>
 <ul>
-<li>「Assistant responds」の text に「<strong>ご利用ありがとうございます。お好みのメニューお申し付けください。</strong>」と記入し、Enterを押下します。</li>
+<li>「Assistant responds」の text に「<strong>ご利用ありがとうございます。お好みのメニューをお申し付けください。</strong>」と記入し、Enterを押下します。</li>
 </ul>
 <p class="image-container"><img style="width: 549.50px" src="img/287d1353cc00d396.png"></p>
 <p>ここまでで第1階層の実装が完了しました。</p>
@@ -221,7 +221,7 @@
 <ul>
 <li>画面右上の [Try it] を押下します。</li>
 <li>入力フォームに「出前お願いしたいんだけど」と入力をしてみましょう。</li>
-<li>先ほど、「Assistant responds」のTextに登録した文章が返ってくれば成功です！</li>
+<li>Watsonから好みのメニューを聞かれたら成功です！</li>
 </ul>
 <p class="image-container"><img style="width: 549.50px" src="img/581ec3919edb2383.png"></p>
 <h2 is-upgraded>第2階層</h2>
@@ -247,7 +247,7 @@
 <li>画面右上の [Try it] を開き、画面上の [Clear] を押下します。</li>
 <li>入力フォームに「出前お願いしたいんだけど」と入力します。</li>
 <li>Watsonからメニューを聞かれたら、お好きなメニューを入力してみましょう。</li>
-<li>先ほど、「Assistant responds」のTextに登録した文章が返ってくれば成功です！</li>
+<li>Watsonから希望の宅配時間を聞かれたら成功です！</li>
 </ul>
 <h2 is-upgraded>第3階層</h2>
 <p>最後に、「3階層：宅配の希望時間を聞く」フローを作っていきましょう。</p>
@@ -255,13 +255,12 @@
 <p class="image-container"><img style="width: 395.50px" src="img/8d61c5803e9e0f88.png"></p>
 <p><strong>Dialog画面</strong></p>
 <ul>
-<li>Welcomeノードの三点リーダーを押下し、 [Add child below] を選択します。</li>
 <li>「お寿司のメニュー」entitiyを設定しているノードの三点リーダーを押下し、 [Add child node] を選択します。</li>
 </ul>
 <p class="image-container"><img style="width: 542.50px" src="img/2e37f1dc0419f407.png"></p>
 <ul>
 <li>「お寿司のメニュー」entitiyを設定しているノードの下に、新しいノードが作成されました。</li>
-<li>「If assistant recognizes」から [@ entities] &gt; [@お寿司のメニュー] &gt; [any] を選択します。</li>
+<li>「If assistant recognizes」から [@ entities] &gt; [@sys-time] &gt; [any] を選択します。</li>
 </ul>
 <p class="image-container"><img style="width: 543.50px" src="img/e02969564a61d03.png"></p>
 <ul>
