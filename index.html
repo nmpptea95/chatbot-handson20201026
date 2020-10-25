@@ -42,7 +42,7 @@
 <li>検索窓に「assistant」と記入します。</li>
 <li>サジェストで表示された「Watson Assistant」を押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/63e0ab27e289bb9c.png"></p>
+<p class="image-container"><img style="width: 549.50px" src="img/63e0ab27e289bb9c.png"></p>
 <p><strong>Watson Assistant 画面</strong></p>
 <ul>
 <li>作成するインスタンス情報を設定します。</li>
@@ -54,12 +54,12 @@
 <li>画面右側の「サマリー」から [作成] ボタンを押下します。</li>
 <li>[作成] ボタン押下から数秒後に、サービス名が表示されている画面へリダイレクトします。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/24d9fc67fb79a830.png"></p>
+<p class="image-container"><img style="width: 549.50px" src="img/24d9fc67fb79a830.png"></p>
 <p><strong> リソース 画面</strong></p>
 <ul>
 <li>[Watson Assistant の起動] を押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/9b4bbfc00a25e463.png"></p>
+<p class="image-container"><img style="width: 552.50px" src="img/9b4bbfc00a25e463.png"></p>
 <ul>
 <li>Watson Assistantが起動します。</li>
 </ul>
@@ -70,9 +70,9 @@
 <ul>
 <li>画面左側にある二つ目のアイコンを押下します。</li>
 <li>Skills画面に遷移します。</li>
-<li>[Create assistant] ボタンを押下します。</li>
+<li>[Create skill] ボタンを押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/7831cec2574bf616.png"></p>
+<p class="image-container"><img style="width: 552.50px" src="img/7d41aac45847148c.png"></p>
 <p><strong>Create a skill画面</strong></p>
 <ul>
 <li>Select skill typeにて「Dialog skill」を選択し、 [Next] ボタンを押下します。</li>
@@ -85,18 +85,21 @@
 </ul>
 <p>                ※Descriptionは書かなくても問題ないです。</p>
 <ul>
-<li>[Create dialog skill] ボタンを押下します。<img style="width: 601.70px" src="img/96c464e3bfc865f.png"></li>
+<li>[Create dialog skill] ボタンを押下します。</li>
+</ul>
+<p class="image-container"><img style="width: 542.50px" src="img/96c464e3bfc865f.png"></p>
+<ul>
 <li>以下のような画面に遷移したら、準備完了です。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/fbfae2946a05f0fb.png"></p>
+<p class="image-container"><img style="width: 544.50px" src="img/fbfae2946a05f0fb.png"></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="構築するチャットボットの対話イメージ" duration="0">
-        <p>今回は「お寿司の出前対応ができるチャットボット」ということで</p>
+        <p>今回は「お寿司の出前対応チャットボット」ということで</p>
 <p>以下のような対話ができるチャットボットを構築していきます。</p>
-<p class="image-container"><img style="width: 601.70px" src="img/8e6e099034e29377.png"></p>
+<p class="image-container"><img style="width: 540.50px" src="img/8e6e099034e29377.png"></p>
 <p>会話の階層イメージは以下の通りです。</p>
 <p>1階層：ユーザーから出前の依頼を受ける</p>
 <p>2階層：お寿司のメニューを聞く</p>
@@ -109,22 +112,22 @@
       <google-codelab-step label="構築１：Intentsの登録" duration="0">
         <p>チャットボットの構築手順は以下の通りです。</p>
 <p class="image-container"><img style="width: 481.50px" src="img/acff3450d2e058b1.png"></p>
-<p>まずはIntentsを作成し、「お寿司の出前をお願いしたい」という意図をWatsonに学習させていきます。</p>
+<p>まずはIntentsを作成し、「出前をお願いしたい」という意図をWatsonに学習させていきます。</p>
 <p><strong>Intents画面</strong></p>
 <ul>
 <li>[Create Intent] ボタンを押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/256b148887c9d055.png"></p>
+<p class="image-container"><img style="width: 543.50px" src="img/256b148887c9d055.png"></p>
 <ul>
 <li>「Intent name」に「<strong>出前依頼</strong>」と入力し、[Create Intent] を押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/b68a24b036f4a5aa.png"></p>
+<p class="image-container"><img style="width: 545.50px" src="img/b68a24b036f4a5aa.png"></p>
 <ul>
 <li>「User example」に出前を依頼するときの<strong>例文を</strong>、<strong>出来るだけ多く登録していきます。</strong></li>
 </ul>
 <p>この作業が賢いチャットボットを作る際のポイントとなる作業です。</p>
 <p>※ [add example]  ボタンを押下すると、例文が登録できます。</p>
-<p class="image-container"><img style="width: 601.70px" src="img/4d05f97ae7b0f854.png"></p>
+<p class="image-container"><img style="width: 542.50px" src="img/4d05f97ae7b0f854.png"></p>
 <ul>
 <li>ある程度例文を登録できたら、画面左上の [←] を押下して前の画面に戻ります。</li>
 </ul>
@@ -142,9 +145,8 @@
 <li>時間（予約時間を認識させるために使います）</li>
 </ul>
 <h3 is-upgraded>お寿司のメニューを登録</h3>
-<p>今回、皆さんがチャットボットを構築するお寿司屋さんで</p>
-<p>販売しているメニューは以下の３つです。</p>
-<p>この３つのメニューをWatsonに学習させていきましょう。</p>
+<p>今回、皆さんがチャットボットを構築するお寿司屋さんで販売しているメニューは以下の３つです。</p>
+<p>このメニューをWatsonに学習させていきましょう。</p>
 <p class="image-container"><img style="width: 522.89px" src="img/5c534eadf6069777.png"></p>
 <p><strong>Intents画面</strong></p>
 <ul>
@@ -154,12 +156,12 @@
 <ul>
 <li>[Create entity] ボタンを押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/baedf62bf8bfd397.png"></p>
+<p class="image-container"><img style="width: 548.50px" src="img/baedf62bf8bfd397.png"></p>
 <ul>
 <li>「Entity name」に「<strong>お寿司のメニュー</strong>」と記入し、 [Create entity] を押下します。</li>
 <li>「Value」に「<strong>松</strong>」、「Synonym」に「<strong>松のセット</strong>」「<strong>豪華なやつ</strong>」など、松のセットを表すキーワードを入力していきます。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/9c392c819d3037c9.png"></p>
+<p class="image-container"><img style="width: 543.50px" src="img/9c392c819d3037c9.png"></p>
 <ul>
 <li>[ Add value] を押下し、入力した内容を登録します。</li>
 <li>その他のメニューの「<strong>竹</strong>」「<strong>梅</strong>」についても、以下の図を参考に同じように登録していきます。</li>
@@ -176,7 +178,7 @@
 <ul>
 <li>「＠sys-time」のStatusを押下し「On」にします。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/f318594d3dbbf784.png"></p>
+<p class="image-container"><img style="width: 551.50px" src="img/f318594d3dbbf784.png"></p>
 <p>これで会話フローを作る材料が揃いました。</p>
 <p>いよいよDialogで会話フローの組立てをしていきます。</p>
 
@@ -205,15 +207,15 @@
 <li>Welcomeノードの三点リーダーを押下し、 [Add node below] を選択します。</li>
 <li>WelcomeノードとAnything_elseノードの間に、新しいノードが作成されました。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/2525072475b46096.png"></p>
+<p class="image-container"><img style="width: 548.50px" src="img/2525072475b46096.png"></p>
 <ul>
 <li>新しく作成されたノードの「If assistant recognizes」から [# intents] &gt; [#出前依頼] を選択します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/ad44f330c39dd9c6.png"></p>
+<p class="image-container"><img style="width: 548.50px" src="img/ad44f330c39dd9c6.png"></p>
 <ul>
 <li>「Assistant responds」の text に「<strong>ご利用ありがとうございます。お好みのメニューお申し付けください。</strong>」と記入し、Enterを押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/287d1353cc00d396.png"></p>
+<p class="image-container"><img style="width: 549.50px" src="img/287d1353cc00d396.png"></p>
 <p>ここまでで第1階層の実装が完了しました。</p>
 <p>「Try it」機能を使って会話フローを確認してみましょう。</p>
 <ul>
@@ -221,26 +223,26 @@
 <li>入力フォームに「出前お願いしたいんだけど」と入力をしてみましょう。</li>
 <li>先ほど、「Assistant responds」のTextに登録した文章が返ってくれば成功です！</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/581ec3919edb2383.png"></p>
+<p class="image-container"><img style="width: 549.50px" src="img/581ec3919edb2383.png"></p>
 <h2 is-upgraded>第2階層</h2>
 <p>つづいて、「2階層：お寿司のメニューを聞く」フローを作っていきましょう。</p>
 <p>対話イメージで表すと、以下図の黄色枠の部分に当たります。</p>
 <p class="image-container"><img style="width: 436.65px" src="img/1c37ad7b60c25a5f.png"></p>
 <p><strong>Dialog画面</strong></p>
 <ul>
-<li>「出前依頼」intentを設定しているノードの三点リーダーを押下し、 [Add child below] を選択します。</li>
+<li>「出前依頼」intentを設定しているノードの三点リーダーを押下し、 [Add child node] を選択します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/d89d7bf413cfd4a8.png"></p>
+<p class="image-container"><img style="width: 549.50px" src="img/d89d7bf413cfd4a8.png"></p>
 <ul>
 <li>新しく作成されたノードの「If assistant recognizes」から [@ entities] &gt; [@お寿司のメニュー] &gt; [any] を選択します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/72154f4b2d03f3f3.png"></p>
+<p class="image-container"><img style="width: 552.50px" src="img/72154f4b2d03f3f3.png"></p>
 <ul>
 <li>「Assistant responds」の text に「<strong>かしこまりました。ご希望のお届け時間はいつですか？</strong>」と記入し、Enterを押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/d9c8fe661fabb3d4.png"></p>
+<p class="image-container"><img style="width: 546.50px" src="img/d9c8fe661fabb3d4.png"></p>
 <p>ここまでで第2階層の実装が完了しました。</p>
-<p>「Try it」機能を使って会話フローを確認してみましょう。        <img style="width: 601.70px" src="img/505c8b0bf193c7c6.png"></p>
+<p>「Try it」機能を使って会話フローを確認してみましょう。        <img style="width: 546.50px" src="img/505c8b0bf193c7c6.png"></p>
 <ul>
 <li>画面右上の [Try it] を開き、画面上の [Clear] を押下します。</li>
 <li>入力フォームに「出前お願いしたいんだけど」と入力します。</li>
@@ -254,21 +256,21 @@
 <p><strong>Dialog画面</strong></p>
 <ul>
 <li>Welcomeノードの三点リーダーを押下し、 [Add child below] を選択します。</li>
-<li>「お寿司のメニュー」entitiyを設定しているノードの三点リーダーを押下し、 [Add child below] を選択します。</li>
+<li>「お寿司のメニュー」entitiyを設定しているノードの三点リーダーを押下し、 [Add child node] を選択します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/2e37f1dc0419f407.png"></p>
+<p class="image-container"><img style="width: 542.50px" src="img/2e37f1dc0419f407.png"></p>
 <ul>
 <li>「お寿司のメニュー」entitiyを設定しているノードの下に、新しいノードが作成されました。</li>
 <li>「If assistant recognizes」から [@ entities] &gt; [@お寿司のメニュー] &gt; [any] を選択します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/e02969564a61d03.png"></p>
+<p class="image-container"><img style="width: 543.50px" src="img/e02969564a61d03.png"></p>
 <ul>
 <li>「Assistant responds」の text に「<strong>かしこまりました。本日@(sys-time)にお届けします。</strong>」と記入し、Enterを押下します。</li>
 </ul>
-<p class="image-container"><img style="width: 601.70px" src="img/cc043b397d37a19f.png"></p>
+<p class="image-container"><img style="width: 544.50px" src="img/cc043b397d37a19f.png"></p>
 <p>遂に第3階層の実装も完了しました。</p>
 <p>「Try it」機能を使って会話フローを確認してみましょう。        </p>
-<p class="image-container"><img style="width: 601.70px" src="img/c1fad8f0b11c9002.png"></p>
+<p class="image-container"><img style="width: 552.50px" src="img/c1fad8f0b11c9002.png"></p>
 <ul>
 <li>画面右上の [Try it] を開き、画面上の [Clear] を押下します。</li>
 <li>入力フォームに「出前お願いしたいんだけど」と入力します。</li>
